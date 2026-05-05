@@ -1,0 +1,39 @@
+body {
+    background-color: #0b3d0b;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.table {
+    margin-top: 40px;
+}
+
+.dice-container {
+    margin: 20px;
+}
+
+.dice-container img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin: 10px;
+    display: inline-block;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+}
+
+.roll {
+    transform: rotate(360deg) scale(1.2);
+}
+
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+}

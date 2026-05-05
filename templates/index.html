@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crapless Craps</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Crapless Craps</h1>
+<div>
+    <input type="text" id="playerName" placeholder="Enter your name">
+    <button onclick="setName()">Start Game</button>
+</div>
+
+<h2>Leaderboard</h2>
+<ul id="leaderboard"></ul>
+<div class="table">
+
+    <h1>Crapless Craps</h1>
+
+    <p id="bankroll"></p>
+    <p id="point"></p>
+
+    <div class="dice-container">
+        <img id="die1" src="/static/dice/dice1.png">
+        <img id="die2" src="/static/dice/dice1.png">
+    </div>
+
+    <input type="number" id="betAmount" placeholder="Bet ($3–$20)">
+    <button onclick="placeBet()">Place Bet</button>
+
+    <button onclick="rollDice()">Roll Dice</button>
+    <button onclick="resetGame()">Reset Game</button>
+
+    <h2 id="result"></h2>
+
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="/static/audio/casino.mp3" type="audio/mpeg">
+</audio>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
