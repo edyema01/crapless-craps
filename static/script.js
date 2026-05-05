@@ -106,7 +106,11 @@ async function rollDice() {
         document.getElementById("result").innerText =
             `Roll: ${data.roll} → ${data.result}`;
 
-        updateState();
+        document.getElementById("bankroll").innerText =
+            "Bankroll: $" + data.bankroll;
+
+        document.getElementById("point").innerText =
+            data.in_round ? "Point: " + data.point : "No Point";
         updateLeaderboard();
 
         button.disabled = false;
