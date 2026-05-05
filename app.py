@@ -19,7 +19,9 @@ def init_game():
     session["name"] = None
 
 def roll_dice():
-    return random.randint(1, 6) + random.randint(1, 6)
+    die1 = random.randint(1, 6)
+    die2 = random.randint(1, 6)
+    return die1, die2
 
 def update_leaderboard(name, bankroll):
     if name:
@@ -70,7 +72,8 @@ def bet():
 
 @app.route("/roll", methods=["POST"])
 def roll():
-    roll = roll_dice()
+    die1, die2 = roll_dice()
+    roll = die1 + die2
 
     if not session["in_round"]:
         if roll in [7, 11]:
@@ -95,6 +98,7 @@ def roll():
 
     return jsonify({
         "roll": roll,
+        "dice": [die1, die2],
         "result": result,
         "bankroll": session["bankroll"],
         "point": session["point"],

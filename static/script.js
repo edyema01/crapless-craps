@@ -92,13 +92,8 @@ async function rollDice() {
         const die1 = document.getElementById("die1");
         const die2 = document.getElementById("die2");
 
-        let d1 = Math.floor(Math.random() * (data.roll - 1)) + 1;
-        let d2 = data.roll - d1;
-
-        if (d2 < 1 || d2 > 6) {
-            d1 = Math.ceil(data.roll / 2);
-            d2 = data.roll - d1;
-        }
+        const d1 = data.dice[0];
+        const d2 = data.dice[1];
 
         die1.src = diceImages[d1 - 1];
         die2.src = diceImages[d2 - 1];
