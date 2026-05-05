@@ -76,14 +76,19 @@ function animateDice() {
 async function rollDice() {
     startMusic();
 
+    // Disable button to prevent spam clicks
+    const button = event.target;
+    button.disabled = true;
+
+    // FIRST: get result from server
+    const res = await fetch("/roll", { method: "POST" });
+    const data = await res.json();
+
+    // THEN: animate
     animateDice();
 
-    // delay to match animation
-    setTimeout(async () => {
-        const res = await fetch("/roll", { method: "POST" });
-        const data = await res.json();
-
-        // Set final dice faces correctly
+    // AFTER animation, show correct result
+    setTimeout(() => {
         const die1 = document.getElementById("die1");
         const die2 = document.getElementById("die2");
 
@@ -101,9 +106,11 @@ async function rollDice() {
         document.getElementById("result").innerText =
             `Roll: ${data.roll} → ${data.result}`;
 
-        updateLeaderboard();
         updateState();
-    }, 1200);
+        updateLeaderboard();
+
+        button.disabled = false;
+    }, 800);
 }
 
 async function resetGame() {
